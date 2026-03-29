@@ -1,0 +1,55 @@
+ Introduction to Data Engineering
+
+1. You are the Chief Data Architect for a global e-commerce company. You have three distinct data requirements:
+
+Order Processing: The checkout system must instantly record sales and update inventory with zero latency.
+Strategic Planning: Analysts need to query 5 years of historical sales data to predict next season's trends.
+Sentiment Research: The team wants to store millions of raw customer support audio recordings for potential future analysis.
+Which combination of tools correctly maps to these three requirements?
+
+[] 1. Data Warehouse, 2. Relational Database, 3. Data Lake
+[x] 1. Relational Database, 2. Data Warehouse, 3. Data Lake
+[] 1. Data Lake, 2. Relational Database, 3. Data Warehouse
+[] 1. Relational Database, 2. Data Lake, 3. Data Warehouse
+
+
+2. A massive online library is digitizing millions of ancient manuscripts as high-resolution image files.
+The organization wants to store these raw files cheaply for indefinite future research but has no immediate plan for how to analyze them. 
+Which storage solution is most appropriate? - Data Lake
+
+3. Why is the role of Data Engineering considered a prerequisite for successful Artificial Intelligence and Large Language Model (LLM) implementation? - 
+Data Engineers provide the clean, high-quality, and structured data necessary to prevent AI from generating errors or 'hallucinations'.
+
+4. A Smart City Traffic Control Center needs to prevent gridlock. 
+They must ingest data from thousands of road sensors and adjust traffic light timing immediately when a jam is detected. 
+Which processing approach and justification are correct for this scenario? - Stream Processing
+
+5. A bank manager wants to run a complex analytical SQL query to check 10-year transaction trends, 
+but the IT department prohibits running this on the core banking database used for ATM transactions.
+What is the technical reason for this restriction and what is the correct alternative? - 
+
+Reason: Transactional databases are optimized for fast, small transactions, 
+and a heavy analytical query would slow down live ATM operations. Alternative: Use a Data Warehouse.
+
+6. A music streaming service collects logs of user listening habits.
+Each log entry is a JSON file containing a User ID and Song ID, 
+but also includes variable fields like 'skipped_at_second' or 'network_type' that differ from user to user. 
+How is this data classified and why?
+
+Semi-structured Data: Because it has some organizational markers (tags/keys) but lacks a rigid schema, allowing for flexible fields.
+
+7. A Data Engineer needs to combine a sales transaction table with a separate customer demographics table to enrich the sales data with location details. 
+This process of linking two different structured datasets is critical for which phase of the data pipeline? - Data Transformation
+
+8. A construction firm possesses a dataset consisting of scanned PDF invoices, drone video footage of sites, and audio recordings of safety meetings. 
+Which data category does this belong to? - Unstructured Data.
+
+9. A Data Scientist attempts to train a model but finds the dataset contains duplicate records, null values in critical fields, and dates in mixed formats.
+Which stage of the Data Engineering lifecycle was likely skipped or performed poorly? - Data Transformation
+
+10. Which description best captures the primary architectural role of Data Engineering within a technology organization? - 
+It functions as the 'plumbing' infrastructure, building and maintaining pipelines that reliably move and transform data from various sources to analytical destinations.
+
+
+
+
