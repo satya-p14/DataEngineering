@@ -50,6 +50,77 @@ Which stage of the Data Engineering lifecycle was likely skipped or performed po
 10. Which description best captures the primary architectural role of Data Engineering within a technology organization? - 
 It functions as the 'plumbing' infrastructure, building and maintaining pipelines that reliably move and transform data from various sources to analytical destinations.
 
+Writing Efficient Queries : 
+
+1. Which of the following best describes the performance issue associated with a Correlated Subquery when compared to a well-optimized JOIN?
+- The subquery must be re-executed once for every row processed by the outer query, forcing an inefficient row-based iteration
+
+2. A data engineer needs to calculate the total sales for the top 100 products. The query involves joining a 1 billion-row Sales table to a 500-row Products table. 
+Which of the following approaches provides the most efficient solution?
+- Aggregate the 1 billion-row Sales table first (GROUP BY product_id), and then join the resulting small aggregate table to the Products table.
+
+3. What is the primary reason for avoiding SELECT * in production data pipeline queries, especially in cloud data warehouses?
+-It forces the database to read and transmit all columns from storage, increasing I/O latency and the 'bytes scanned' cost.
+
+4. In a distributed data warehouse environment (e.g., BigQuery or Snowflake),
+why is an ORDER BY clause without a LIMIT considered a severe performance anti-pattern?
+- It forces a massive data movement (shuffle) to a single coordinator node for a final global sort, creating a major bottleneck
+
+5. A data engineer needs to find all distinct film categories that have at least one film currently available in inventory. They compare two queries: Query A: SQL
+
+SELECT name FROM category c 
+WHERE EXISTS (
+    SELECT 1 FROM film_category fc 
+    JOIN inventory i ON fc.film_id = i.film_id 
+    WHERE fc.category_id = c.category_id
+);
+Query B: SQL
+
+SELECT DISTINCT c.name FROM category c 
+JOIN film_category fc ON c.category_id = fc.category_id 
+JOIN inventory i ON fc.film_id = i.film_id;
+Which query is superior for performance, and why?
+- Query A is superior because the EXISTS operator immediately stops searching the secondary tables 
+once the first available film is found, preventing row explosion and costly sorting.
+
+6. A data engineer needs to identify all films in the Sakila film table that have never been featured in any rental transaction. They are comparing two logical approaches: Query A: SQL
+
+SELECT f.title FROM film f 
+WHERE NOT EXISTS (
+    SELECT 1 FROM inventory i 
+    JOIN rental r ON i.inventory_id = r.inventory_id 
+    WHERE i.film_id = f.film_id
+);
+Query B: SQL
+
+SELECT f.title FROM film f 
+LEFT JOIN inventory i ON f.film_id = i.film_id 
+LEFT JOIN rental r ON i.inventory_id = r.inventory_id 
+GROUP BY f.film_id 
+HAVING COUNT(r.rental_id) = 0;
+- Query A is preferred because it avoids processing and aggregating all the historical rental records for a film as soon as a rental is found, 
+preventing unnecessary work.
+
+7. Your fraud detection system queries a log table where 98% of transactions are status = 'APPROVED'. 
+The critical query searches for status = 'REJECTED'. What is the most appropriate action for indexing the status column?
+-Do not create an index; the optimizer will prefer a full table scan due to low selectivity for the 'REJECTED' value
+
+8. An index exists on tickets(priority, assignee, status). Which query will not be able to use the index effectively because it violates the leftmost prefix rule?
+- WHERE assignee = 'John' AND status = 'Open'
+
+9. An index is defined as: (userid, sessionstart). Which query can successfully utilize this index, even if the filter order in the WHERE clause is different?
+- WHERE sessionstart > '2025-01-01' AND userid = 42
+
+10. An analyst runs this query on the 100M-row transactions table: SELECT country, SUM(amount) FROM transactions GROUP BY country;.
+Which single index provides the best performance boost for this aggregation?
+-(country)
+
+11. An author frequently uses a query to find draft articles: SELECT id FROM drafts WHERE title LIKE 'Draft-%';.
+What is the correct indexing advice for the title column?
+-Yes, a normal B-Tree index on title is effective because the prefix is fixed
+-
+
+
 
 
 
