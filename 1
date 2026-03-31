@@ -50,7 +50,9 @@ Which stage of the Data Engineering lifecycle was likely skipped or performed po
 10. Which description best captures the primary architectural role of Data Engineering within a technology organization? - 
 It functions as the 'plumbing' infrastructure, building and maintaining pipelines that reliably move and transform data from various sources to analytical destinations.
 
+---------------------------------------------
 Writing Efficient Queries : 
+---------------------------------------------
 
 1. Which of the following best describes the performance issue associated with a Correlated Subquery when compared to a well-optimized JOIN?
 - The subquery must be re-executed once for every row processed by the outer query, forcing an inefficient row-based iteration
@@ -118,6 +120,31 @@ Which single index provides the best performance boost for this aggregation?
 11. An author frequently uses a query to find draft articles: SELECT id FROM drafts WHERE title LIKE 'Draft-%';.
 What is the correct indexing advice for the title column?
 -Yes, a normal B-Tree index on title is effective because the prefix is fixed
+
+
+----------------------------------------------
+Intro to Hadoop
+----------------------------------------------
+
+1. What was the primary reason for the creation of Apache Hadoop? - 
+    To handle large-scale distributed data processing
+2. Which of the following best describes horizontal scaling? - 
+   Adding more machines to a cluster
+3. In a Hadoop cluster, which component is responsible for resource management? - 
+   Apache Hadoop YARN
+4. What is the role of the ResourceManager in YARN? - 
+   Allocates cluster resources
+5. Which component runs on each worker node in YARN? - 
+   NodeManager
+6. What is a “container” in YARN? - 
+    A unit of CPU and memory allocated for tasks
+7. What happens first when a job is submitted in YARN? - 
+   ResourceManager allocates resources
+8. Which of the following is NOT a component of YARN? - 
+   DataNode
+9. Why was YARN introduced in Hadoop? - 
+   To separate resource management from processing
+10. Which scheduling strategy ensures fair resource sharing among applications?   
 -
 
 
