@@ -207,10 +207,23 @@ Intro to Hadoop
    DataNode
 9. Why was YARN introduced in Hadoop? - 
    To separate resource management from processing
-10. Which scheduling strategy ensures fair resource sharing among applications?   
--
+10. Which scheduling strategy ensures fair resource sharing among applications?  
 
+----------------------------------------------
+HDFS and MAP-REDUCE
+----------------------------------------------
 
+1. What is the default block size in HDFS (commonly in modern Hadoop)? -- 138 MB
+2. Which component in HDFS stores metadata (file name, block locations)? 
+ -- NameNode - NameNode is responsible for storing the metadata of the file system.
+3. What is the default replication factor in HDFS? - 3
+4. During HDFS read operation, where does the client fetch data from? - DataNode 
+5. What happens when a DataNode fails in HDFS? --- Data is recovered using replication
+6. In MapReduce, which phase is responsible for grouping similar keys together? --- Shuffle & Sort
+7. What is the main purpose of the Map phase in MapReduce? --- Convert input into key-value pairs
+8. Which component determines how data is distributed to reducers? --- Partitioner
+9. What is the role of a Combiner in MapReduce? --- Local aggregation before shuffle
+10. Why is MapReduce considered slower compared to modern frameworks like Apache Spark? -- It relies heavily on disk I/O between stages
+    MapReduce writes intermediate results to disk after every stage, while Spark processes most data in memory.
 
-
-
+ 
