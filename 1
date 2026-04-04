@@ -121,6 +121,69 @@ Which single index provides the best performance boost for this aggregation?
 What is the correct indexing advice for the title column?
 -Yes, a normal B-Tree index on title is effective because the prefix is fixed
 
+---------------------------------------------
+Writing Efficient Queries 2 : 
+---------------------------------------------
+
+1. A data engineering team designs a system to handle billions of web events daily using the following schema:
+   The primary use case is generating daily reports by calculating sums and averages using only clicks, scrolldepth, and browsertype. 
+   Which storage model offers the best solution for this specific workload? - 
+   Column-based storage with no additional indexing ✓
+
+2. A transactional application frequently performs operations that read a single customer record, update several fields (e.g., address, phone, account status) within that record, and then write the complete record back to disk. 
+   Which storage model is intrinsically more efficient for this workload? - 
+   Row-based storage
+
+3. In a database, what is the fundamental difference in data organization between Row-based storage and Column-based storage?-
+   Row-based stores all values for a single row contiguously; Column-based stores all values for a single column contiguously.
+
+4. Which column characteristic is the primary requirement for a Bitmap Index to be an efficient indexing strategy? - 
+   Low Cardinality (few unique values)
+
+5. What is the standard SQL operation or concept used to transform a column containing an array (repeated data) of structured 
+   elements into a set of separate, normalized rows?   -
+   UNNEST (or FLATTEN) : The UNNEST operation is used in SQL to expand an array or repeated field into multiple rows.
+
+6. A financial company's database processes numerous complex analytical queries combining filters on three columns: 
+   ProductSegment (10 values), Region (5 values), and IsSettled (True/False). 
+   Which index type is most suitable for optimizing these specific read-heavy queries? - 
+   Bitmap Index on all three columns   
+
+7. A table has a B-Tree index on the creation_date column. Which of the following SQL WHERE clauses 
+   will likely force a full table or full index scan instead of using the index efficiently?   --
+   WHERE YEAR(creation_date) = 2024
+
+8. Comparing Row-based and Column-based storage, 
+    which statement accurately reflects their typical performance trade-offs for analytical workloads?   --- 
+    Column-based storage requires less I/O when reading only a subset of columns for analysis.
+    In column-based storage, data is stored column by column rather than row by row. This means that when a query only needs a few columns,
+    the database reads only those columns from disk, reducing the amount of I/O.
+
+9. An executive dashboard currently takes 15 seconds to load because it executes a complex query that joins five large tables 
+   and calculates four different summary metrics. The underlying data only changes once every 24 hours. 
+   The goal is to reduce the dashboard load time to under 1 second without modifying the application code that displays the data. 
+   Which database object should be created to achieve this goal?    ---
+   A Materialized View, refreshed daily 
+   A materialized view stores the precomputed result of a query physically on disk instead of computing it every time it is requested.
+
+10. A database stores information about customer orders. To avoid numerous JOIN operations, a single row in the Orders table contains a nested field called LineItems,
+    which is an array of structs (containing productid, quantity, and price).
+    A financial analyst needs to calculate the total quantity of a specific product sold across all orders. 
+    Which approach is necessary to satisfy this query requirement?   ---
+    Use the UNNEST operator on the Line_Items field, then filter and SUM the resulting rows.
+
+11. What is the primary technical advantage of using a Materialized View over a standard View in a data analysis environment? --
+    A standard View stores the query definition; a Materialized View stores the actual data results.
+
+12. The primary purpose of database partitioning is to: -- 
+     Break a large table into smaller, more manageable physical pieces based on a key.
+
+13. A data warehouse team has a 5-year history table containing billions of log entries, all indexed by a log_timestamp column. 
+    They need to frequently run queries that only hit the last 3 months of data, 
+    and they also want to implement a cost-saving policy to archive or delete data older than 3 years easily. 
+    Which partitioning strategy should they adopt?     ---
+    Range Partitioning on the log_timestamp column, 
+    creating monthly partitions for efficient query pruning and easy detachment of old data.
 
 ----------------------------------------------
 Intro to Hadoop
