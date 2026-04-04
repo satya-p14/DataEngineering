@@ -226,4 +226,21 @@ HDFS and MAP-REDUCE
 10. Why is MapReduce considered slower compared to modern frameworks like Apache Spark? -- It relies heavily on disk I/O between stages
     MapReduce writes intermediate results to disk after every stage, while Spark processes most data in memory.
 
+----------------------------------------------
+ Introduction to Hive
+----------------------------------------------
+
+1. Hive mainly focuses on: - Analytics and reporting
+2. What happens when a user submits a Hive query? - Hive converts SQL into execution jobs
+3. Which component manages the lifecycle of a Hive query? - Driver
+4. Which component stores metadata about tables and databases? -- Metastore
+5. Hive follows which schema approach? -- Schema-on-read
+6. Which table type allows Hive to only reference data without owning it? -- External table
+7. What is the main purpose of partitioning in Hive? --- 
+   Improve query performance by dividing large tables into smaller, manageable parts based on column values
+8. Bucketing in Hive is mainly used to: -- Improve joins and sampling   
+9. Hive is NOT recommended for: --- Real-time dashboards
+10. Which statement is FALSE? -- Hive replaces traditional databases
+
+
  
