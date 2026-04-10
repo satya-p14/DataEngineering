@@ -242,5 +242,71 @@ HDFS and MAP-REDUCE
 9. Hive is NOT recommended for: --- Real-time dashboards
 10. Which statement is FALSE? -- Hive replaces traditional databases
 
+-----------------------------------
+Advanced features of Hive
+------------------------------------
+1. A retail company collects daily sales data from 500 stores. The data is stored in Hadoop because of its large size. 
+   The business team wants to analyze monthly sales using SQL-like queries without writing Java programs.
+   Which tool is BEST suited for this requirement? ---
+   Apache Hive
+
+2. A retail company collects daily sales data from 500 stores. 
+   The data is stored in Hadoop because of its large size. The business team wants to analyze monthly 
+   sales using SQL-like queries without writing Java programs.
+   Why is MapReduce not ideal for the business team?   ---
+   It requires complex programming
+
+3. A student runs a Hive query to calculate total sales by region. 
+   The query runs for several minutes and then returns the result.
+   What does Hive do FIRST after receiving the query?   ---- Converts the query into execution jobs
+
+4. A student runs a Hive query to calculate total sales by region. 
+   The query runs for several minutes and then returns the result.
+   Which component manages the entire query lifecycle?    ---- Hive Driver
+
+5. A beginner believes that Hive stores all table data inside the Metastore database.
+   What is actually stored in the Hive Metastore?    ---- Table structure and metadata
+
+6. A beginner believes that Hive stores all table data inside the Metastore database.
+   Where is the real data stored?    ---- HDFS
+
+7. A data engineering team wants Hive to query log files stored in HDFS, 
+   but they do NOT want Hive to delete the files if the table is dropped.
+   Which table type should be used?    ----- External table
+
+8. A data engineering team wants Hive to query log files stored in HDFS, 
+   but they do NOT want Hive to delete the files if the table is dropped.
+   What happens to data when an external table is dropped?   ----- Data remains in HDFS
+
+9. A dataset contains sales data for 5 years. Most queries filter data by year.
+   What Hive feature will BEST improve performance?    ----- Partitioning
+
+10. A dataset contains sales data for 5 years. Most queries filter data by year. 
+    Why does partitioning improve performance? ---- Hive to scan only the relevant subset of data instead of the entire dataset.   
+
+11. A startup needs real-time updates for user transactions and instant query responses.
+    Is Hive suitable for this requirement?     ---- No, Hive is batch-oriented
+
+12. A student asks why Hive allows loading unstructured data without defining a schema in advance.
+    Which concept explains this behavior?     --- Schema-on-read
+
+13. A student asks why Hive allows loading unstructured data without defining a schema in advance.
+    Which system uses schema-on-write?   -----Traditional RDBMS
+
+-------------------------------
+ Basics of Spark
+-------------------------------
+
+1. What is Spark primarily designed for? ------- Distributed data processing
+2. What is the fundamental data abstraction in Spark? --------- RDD (Resilient Distributed Dataset)
+3. What does the Catalyst Optimizer do in Spark? ----- Optimizes DataFrame and SQL queries
+4. Which of the following is a transformation in Spark? ------ 
+    join() is a transformation because it combines two datasets and produces a new one.
+5. What does Spark use to store metadata about RDDs and DataFrames? -----Lineage Graph
+6. What is the difference between RDD and DataFrame? ------RDD is untyped, DataFrame has schema
+7. Which of the following is a structured data source supported by Spark? -------  CSV . JSON , Parquet 
+8. What does the explain() method do in Spark? -----display the execution plan of a query.
+9. In Spark, broadcast joins are useful when: ----One table is small, the other is large
+
 
  
