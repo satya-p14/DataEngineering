@@ -309,4 +309,20 @@ Advanced features of Hive
 9. In Spark, broadcast joins are useful when: ----One table is small, the other is large
 
 
+-------------------------------
+ Spark Programming
+-------------------------------
+
+1. Which operation triggers actual execution in Spark? -- count
+2. Which transformation is considered a narrow transformation? --- map
+3. What is a shuffle in Spark? --- Moving data across partitions or nodes
+4. Why does Spark try to minimize shuffles? ---- Shuffles involve network and disk I/O
+5. Which operation is preferred over groupByKey for aggregation? --- reduceByKey
+6. When should an RDD be cached? --- When it is reused across multiple actions
+7. How does Spark recover a lost RDD partition? ---- By recomputing from lineage
+8. What does sc.textFile() return? ----  An RDD of lines
+9. What is the role of SparkContext? ----  Connects the application to the cluster
+10. When should RDDs be preferred over DataFrames?  ---- For low-level transformations and custom logic
+11.  
+
  
