@@ -727,4 +727,39 @@ Amazon SQS
 12. Which AWS service is best suited for real-time data streaming ingestion?
 Amazon Kinesis
 
+--------------------------
+Data Modelling
+--------------------------
+
+1. A company stores order transactions in a normalized OLTP system. Analysts complain that dashboard queries are slow and require complex joins. Which modeling change would MOST directly improve analytical query performance?
+Convert the model into a star schema
+
+2. You are designing a fact table that stores one row per order item. Which design decision BEST defines the grain?
+One row per order line item
+
+3. Which type of fact can be safely aggregated across all dimensions, including time?
+Additive
+
+4. A dimension table tracks customer address changes while preserving historical versions. Which SCD type is MOST suitable?
+Type 2
+
+5. Why are surrogate keys preferred over natural keys in dimension tables?
+They isolate the warehouse from source system changes
+
+6. Which scenario BEST justifies using a snowflake schema instead of a star schema?
+Dimensions with deep hierarchical relationships
+
+7. An enterprise wants to analyze sales, payments, and deliveries together using shared dimensions like customer and date. Which schema is MOST appropriate?
+Fact constellation schema
+
+8. Which design mistake MOST commonly leads to incorrect aggregations in reports?
+Incorrect grain definition
+
+9. Why are dimensional models considered more business-friendly than normalized models?
+They mirror how business users think about data
+
+10. Which optimization technique MOST improves query performance in large fact tables?
+Partitioning fact tables by date
+
+
  
