@@ -323,6 +323,67 @@ Advanced features of Hive
 8. What does sc.textFile() return? ----  An RDD of lines
 9. What is the role of SparkContext? ----  Connects the application to the cluster
 10. When should RDDs be preferred over DataFrames?  ---- For low-level transformations and custom logic
-11.  
+
+-------------------------------
+ Introduction to Streaming
+-------------------------------
+1. What is the main idea behind file-based streaming?
+	Continuously monitoring a directory for new files
+2. Why is file-based streaming considered a bridge between batch and streaming?
+		It feels like batch but runs continuously
+3. Which statement best describes a socket source?
+			A learning and demonstration tool
+4. Why are socket sources NOT used in production systems?
+		They do not provide reliability or fault tolerance	
+5. What makes Kafka suitable for real-world streaming systems?
+	
+It provides durability and replayability
+
+6. In a streaming system, what does “rate of data arrival” refer to?
+
+How quickly data events reach the system
+
+7. Why is unpredictable data arrival rate a challenge in streaming? 
+Sudden spikes can overwhelm processing
+8. What is schema inference in streaming?
+Automatically detecting data structure
+9. 	Why do production streaming systems prefer predefined schemas?
+They avoid runtime failures due to structure changes
+
+
+-------------------------------
+ Apache Spark Streaming
+-------------------------------
+1. Why is watermarking mandatory in stream-stream joins?
+To prevent infinite state growth
+
+2. What happens if watermark is not defined in multi-stream joins?
+Spark accumulates unlimited state
+
+3. Which condition is mandatory in stream-stream join?
+Time range condition
+
+4. Why must watermark be applied on both streams?
+For bounded state on both sides
+
+5. Which output mode is best for stream-stream joins?
+Update
+
+6. What does watermark duration represent?
+Maximum event delay tolerated
+
+7. Without windowing, stream-stream joins are:
+Impossible in production
+
+8. Windowing in multi-stream joins is required to:
+Limit join scope in time
+
+9. What happens when watermark passes a window end time?
+State is deleted
+
+10. Stream-stream joins without watermark cause:
+Memory leak over time
+
+
 
  
