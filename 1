@@ -385,5 +385,44 @@ State is deleted
 Memory leak over time
 
 
+-------------------------------
+Advanced Spark Streaming
+-------------------------------
+Advanced Spark Streaming
+
+1. Which Spark Structured Streaming feature is used to handle late-arriving events?
+Watermarking
+
+2. What is the primary purpose of checkpointing in Spark Structured Streaming?
+To persist state and allow recovery after failures
+
+3. In a stream-static join, the static dataset is typically:
+Broadcast to all executors
+
+4. What is the role of dropDuplicates(["Email", "Timestamp"]) in a streaming query?
+Removes duplicate events from the stream
+
+5. Which output mode only outputs the new rows added since the last trigger?
+Append
+
+6. When using stream-stream joins, why is watermarking important?
+It limits state size by discarding very late events
+
+7. In a windowed aggregation over 30 minutes sliding every 10 minutes, how many windows will a single record belong to?
+3
+
+8. Which of the following is true about metrics in Spark Structured Streaming?
+They provide real-time statistics such as processed rows and batch duration
+
+9. What happens if you restart a streaming query from a checkpoint?
+Query resumes exactly where it left off without duplication
+
+10. Which of the following operations is stateful in Spark Structured Streaming?
+Aggregating total salary per department with a window
+
+
+
+
+
 
  
