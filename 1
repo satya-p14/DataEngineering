@@ -452,6 +452,238 @@ It lacks built-in state management and modern guarantees
 10. Which statement best captures the trade-off between Spark Streaming and Flink?
 Spark favors batch consistency, Flink favors real-time accuracy
 
+-------------------------------------
+Modern Data Architecures
+-------------------------------------
+
+1. Company: ShopEase Technologies
+ShopEase is a fast-growing e-commerce company operating in multiple countries. The company collects data from:
+
+Website and mobile app user clicks
+Order and payment transactions
+Application logs
+Customer support systems
+Different teams have different requirements:
+
+Business team needs accurate historical reports
+Product team wants near real-time dashboards
+Data science team wants raw data for ML models
+Engineering team wants to reduce data duplication and cost
+ShopEase is planning to build a new data engineering pipeline and wants to choose the right data architecture based on different constraints.
+
+Problem Description
+ShopEase currently generates only structured transactional data from its order and payment systems. Reports are generated once per day, and strong consistency is required for financial reporting. Real-time analytics is not required.
+
+Which architecture is the best fit?
+
+Traditional Data Warehouse
+
+2. Company: ShopEase Technologies
+ShopEase is a fast-growing e-commerce company operating in multiple countries. The company collects data from:
+
+Website and mobile app user clicks
+Order and payment transactions
+Application logs
+Customer support systems
+Different teams have different requirements:
+
+Business team needs accurate historical reports
+Product team wants near real-time dashboards
+Data science team wants raw data for ML models
+Engineering team wants to reduce data duplication and cost
+ShopEase is planning to build a new data engineering pipeline and wants to choose the right data architecture based on different constraints.
+
+Problem Description
+The product team at ShopEase wants to store raw clickstream logs, JSON events, images, and CSV files cheaply, without defining schema upfront. The data may or may not be used later.
+
+Which architecture should ShopEase choose?
+Data Lake
+
+3. Company: ShopEase Technologies
+ShopEase is a fast-growing e-commerce company operating in multiple countries. The company collects data from:
+
+Website and mobile app user clicks
+Order and payment transactions
+Application logs
+Customer support systems
+Different teams have different requirements:
+
+Business team needs accurate historical reports
+Product team wants near real-time dashboards
+Data science team wants raw data for ML models
+Engineering team wants to reduce data duplication and cost
+ShopEase is planning to build a new data engineering pipeline and wants to choose the right data architecture based on different constraints.
+
+Problem Description
+ShopEase wants real-time dashboards for today’s sales while still ensuring that historical reports remain accurate after corrections. The team is okay with running two processing pipelines if needed.
+
+Which architecture fits this requirement?
+
+Lambda Architecture
+
+
+4. Company: ShopEase Technologies
+ShopEase is a fast-growing e-commerce company operating in multiple countries. The company collects data from:
+
+Website and mobile app user clicks
+Order and payment transactions
+Application logs
+Customer support systems
+Different teams have different requirements:
+
+Business team needs accurate historical reports
+Product team wants near real-time dashboards
+Data science team wants raw data for ML models
+Engineering team wants to reduce data duplication and cost
+ShopEase is planning to build a new data engineering pipeline and wants to choose the right data architecture based on different constraints.
+
+Problem Description
+ShopEase wants to eliminate batch processing entirely and process all data as a continuous stream. If logic changes, they plan to replay historical events instead of running batch jobs.
+
+Which architecture matches this approach?
+
+Kappa Architecture
+
+5. Company: ShopEase Technologies
+ShopEase is a fast-growing e-commerce company operating in multiple countries. The company collects data from:
+
+Website and mobile app user clicks
+Order and payment transactions
+Application logs
+Customer support systems
+Different teams have different requirements:
+
+Business team needs accurate historical reports
+Product team wants near real-time dashboards
+Data science team wants raw data for ML models
+Engineering team wants to reduce data duplication and cost
+ShopEase is planning to build a new data engineering pipeline and wants to choose the right data architecture based on different constraints.
+
+Problem Description
+ShopEase’s data science team wants raw historical data for ML models, while business users want fast SQL analytics. The company wants to avoid copying data into multiple systems.
+
+Which architecture best satisfies both teams?
+Data Lakehouse
+
+6. Company: ShopEase Technologies
+ShopEase is a fast-growing e-commerce company operating in multiple countries. The company collects data from:
+
+Website and mobile app user clicks
+Order and payment transactions
+Application logs
+Customer support systems
+Different teams have different requirements:
+
+Business team needs accurate historical reports
+Product team wants near real-time dashboards
+Data science team wants raw data for ML models
+Engineering team wants to reduce data duplication and cost
+ShopEase is planning to build a new data engineering pipeline and wants to choose the right data architecture based on different constraints.
+
+Problem Description
+ShopEase built a Data Lake but is now facing problems such as:
+
+No schema enforcement
+Duplicate datasets
+Low trust in reports
+Which architectural improvement would best address this?
+
+Introduce a Data Lakehouse approach
+
+7. Company: ShopEase Technologies
+ShopEase is a fast-growing e-commerce company operating in multiple countries. The company collects data from:
+
+Website and mobile app user clicks
+Order and payment transactions
+Application logs
+Customer support systems
+Different teams have different requirements:
+
+Business team needs accurate historical reports
+Product team wants near real-time dashboards
+Data science team wants raw data for ML models
+Engineering team wants to reduce data duplication and cost
+ShopEase is planning to build a new data engineering pipeline and wants to choose the right data architecture based on different constraints.
+
+Problem Description
+ShopEase wants ACID transactions, time travel, and schema evolution on top of cheap object storage.
+
+Which architecture provides these features?
+
+Data Lakehouse
+
+8. Company: ShopEase Technologies
+ShopEase is a fast-growing e-commerce company operating in multiple countries. The company collects data from:
+
+Website and mobile app user clicks
+Order and payment transactions
+Application logs
+Customer support systems
+Different teams have different requirements:
+
+Business team needs accurate historical reports
+Product team wants near real-time dashboards
+Data science team wants raw data for ML models
+Engineering team wants to reduce data duplication and cost
+ShopEase is planning to build a new data engineering pipeline and wants to choose the right data architecture based on different constraints.
+
+Problem Description
+A regulatory audit requires ShopEase to recompute historical metrics using corrected business logic applied to all past data.
+
+Which architecture supports this most naturally?
+
+Kappa Architecture
+
+9. Company: ShopEase Technologies
+ShopEase is a fast-growing e-commerce company operating in multiple countries. The company collects data from:
+
+Website and mobile app user clicks
+Order and payment transactions
+Application logs
+Customer support systems
+Different teams have different requirements:
+
+Business team needs accurate historical reports
+Product team wants near real-time dashboards
+Data science team wants raw data for ML models
+Engineering team wants to reduce data duplication and cost
+ShopEase is planning to build a new data engineering pipeline and wants to choose the right data architecture based on different constraints.
+
+Problem Description
+ShopEase’s engineering team complains about duplicate code, two pipelines, and high maintenance cost in their current architecture.
+
+Which architecture is most likely causing this problem?
+
+Lambda Architecture
+
+10. Company: ShopEase Technologies
+ShopEase is a fast-growing e-commerce company operating in multiple countries. The company collects data from:
+
+Website and mobile app user clicks
+Order and payment transactions
+Application logs
+Customer support systems
+Different teams have different requirements:
+
+Business team needs accurate historical reports
+Product team wants near real-time dashboards
+Data science team wants raw data for ML models
+Engineering team wants to reduce data duplication and cost
+ShopEase is planning to build a new data engineering pipeline and wants to choose the right data architecture based on different constraints.
+
+Problem Description
+ShopEase wants one single platform to support:
+
+BI reporting
+Real-time analytics
+Machine learning
+Streaming ingestion
+While keeping storage costs low and governance strong.
+
+Which architecture should they adopt?
+
+Data Lakehouse
+
 
 
 
