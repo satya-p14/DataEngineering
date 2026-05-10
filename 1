@@ -420,7 +420,37 @@ Query resumes exactly where it left off without duplication
 10. Which of the following operations is stateful in Spark Structured Streaming?
 Aggregating total salary per department with a window
 
+# additional
 
+1. Why is Apache Spark Streaming sometimes not ideal for real-time decision systems?
+It uses micro-batch processing which adds latency
+
+2. Which framework is best suited when you want stream processing logic embedded directly inside a microservice?
+Kafka Streams
+
+3. Why does Apache Flink handle late and out-of-order data better than Spark Streaming?
+It has native event-time and watermark support
+
+4. Which disadvantage is most commonly associated with Kafka Streams?
+Tight coupling with Kafka ecosystem
+
+5. Why was Apache Storm considered revolutionary at the time of its introduction?
+It enabled true record-by-record real-time processing
+
+6. Which framework generally requires the most operational effort to deploy and manage in production?
+Apache Flink
+
+7. If an application requires exactly-once guarantees with large state and complex windows, which framework is the best fit?
+Apache Flink
+
+8. Which framework’s main advantage is simplicity and low operational overhead rather than maximum flexibility?
+Kafka Streams
+
+9. Why might Apache Storm be considered less suitable for modern streaming systems today?
+It lacks built-in state management and modern guarantees
+
+10. Which statement best captures the trade-off between Spark Streaming and Flink?
+Spark favors batch consistency, Flink favors real-time accuracy
 
 
 
